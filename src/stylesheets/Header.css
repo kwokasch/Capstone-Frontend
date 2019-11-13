@@ -1,0 +1,22 @@
+/* .header {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: center;
+    padding-left: 40px;
+} */
+
+img {
+    height: 80%;
+    width: auto;
+    align-self: center;
+}
+
+.logo-box {
+    height: 70px;
+    padding-left: 20px;
+    margin-top: 15px;
+    align-content: center;
+}

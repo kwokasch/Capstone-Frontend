@@ -1,0 +1,27 @@
+/* @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap'); */
+@import url('https://fonts.googleapis.com/css?family=Baloo&display=swap');
+
+.subheader {
+    display: flex;
+    flex-flow: row;
+    align-content: center;
+    background-color: #b7dfdf8c;
+    height: 30px;
+    width: 100%;
+    box-shadow: 0 1px 4px #012c2c;
+}
+
+.links {
+    display: flex;
+    /* font-family: 'Barlow Semi Condensed', sans-serif; */
+    font-family: 'Baloo', cursive;
+    align-items: center;
+    width: 100%;
+}
+
+.links > h4 {
+    width: 25%;
+    font-size: 20px;
+    text-align: center;
+    color: #014242;
+}

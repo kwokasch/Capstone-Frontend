@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:600&display=swap');
+
+.nav-bar {
+    display: flex;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 600;
+    color: #b7dfdf;
+    font-size: 24px;
+    flex-flow: row wrap;
+    flex-direction: flex-end;
+    text-align: center;
+    align-content: center;
+    margin: 20px;
+    justify-content: space-evenly;
+    width: 28%;
+}
