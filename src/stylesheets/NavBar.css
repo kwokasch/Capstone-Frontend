@@ -5,12 +5,17 @@
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-weight: 600;
     color: #b7dfdf;
-    font-size: 24px;
+    font-size: 22px;
     flex-flow: row wrap;
     flex-direction: flex-end;
     text-align: center;
     align-content: center;
     margin: 20px;
-    justify-content: space-evenly;
+    justify-content: space-around;
     width: 28%;
+}
+
+.link {
+    text-decoration: none;
+    color: #b7dfdf;
 }

@@ -15,31 +15,27 @@ body {
 
 .image-container {
     display: flex;
-    height: 530px;
+    height: 552px;
+    background-image: url('../images/Background_Intro.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
 }
 
 .background-image {
     display: flex;
-    /* background-image: url("https://besthqwallpapers.com/Uploads/2-9-2018/64259/cat-and-dog-friendship-cute-animals-green-grass-australian-shepherd-dog.jpg"); */
-    /* background-position: fixed; */
-    vertical-align: text-top;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-end; 
     font-family: 'Pacifico', cursive;
     object-fit: contain;
     overflow: hidden;
 }
 
-.background-image > img {
-    height: auto;
+.background-image > h3 {
     width: 100%;
-}
-
-.background-image > p {
     font-size: 45px;
     text-align: center;
-    align-self: flex-end;
-    position: absolute;
+    /* justify-self: center; */
     color: #f4fafafd;
     padding-bottom: 30px;
 }
@@ -66,6 +62,7 @@ body {
     justify-content: space-evenly;
     padding-left: 10px;
     padding-right: 10px;
+    background: linear-gradient(#f0fdfdb2, #013b525a)
 }
 
 .info-box {
@@ -73,12 +70,12 @@ body {
     flex-flow: row wrap;
     text-align: center;
     font-family: 'Baloo', cursive;
-    font-size: 45px;
+    font-size: 40px;
     color: #015c5cc7;
     width: 35%;
     height: 80%;
-    background-color: #b7dfdfb2;
-    border: 5px solid #9ec4c4;
+    background-color: white;
+    border: 5px solid #015c5cc7;
     padding-top: 10px;
     margin: 25px;
     margin-top: 45px;
@@ -111,7 +108,7 @@ body {
     color: #015c5cfd;
 }
 
-.info-box > button {
+button {
     margin: 8px;
     margin-top: 15px;
     padding-top: 4px;
