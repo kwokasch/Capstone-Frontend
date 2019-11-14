@@ -4,13 +4,12 @@ import './../stylesheets/IntroPage.css';
 // import backgroundImage from '../images/Background_Intro.png';
 
 export default function IntroPage (){
-
     return (
         <body>
             <div className="image-container">
                 <div className="background-image">
                     {/* <img src={backgroundImage} alt="background-image"/> */}
-                    <h3>Helping Owners Find Their Pets</h3>
+                    <h3>Helping Pets Find Their Way Home</h3>
                 </div>
             </div>
             <div className="info-container">

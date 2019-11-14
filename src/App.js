@@ -8,11 +8,24 @@ import LoginSignupPage from './containers/LoginSignupPage';
 // import LostFoundPage from './containers/LostFoundPage';
 import './App.css';
 
+const BASE_URL = "http://localhost:3000"
+
 class App extends Component {
   state = {
-    
+    currentUser: null
   }
 
+  postUser = (user) => {
+    console.log(user)
+    fetch(`${BASE_URL}/users`, {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user)
+    }).then(response => response.json())
+    .then(console.log)
+  }
 
   render(){
     return (
@@ -27,6 +40,7 @@ class App extends Component {
                 <SubHeader />
             </div>
           </header>
+          <LoginSignupPage postUser={this.postUser} />
         </div>
           <Switch>
             <Route exact path="/" component={IntroPage} />
