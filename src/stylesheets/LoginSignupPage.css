@@ -50,23 +50,26 @@
 }
 
 .login-link {
-    width: 280px;
+    width: 300px;
     justify-content: center;
     text-align: center;
-    padding-top: 10px;
+    font-style: italic;
+    text-decoration: underline;
+    padding-top: 25px;
     font-family: 'Barlow Semi Condensed', sans-serif;
     color: #006161d2;
 } 
 
 .login-link:hover {
-    cursor: pointer;
+    cursor: pointer; 
 } 
 
 .signup-link {
-    width: 280px;
+    width: 300px;
     justify-content: center;
     text-align: center;
-    padding-top: 10px;
+    font-style: italic;
+    padding-top: 30px;
     font-family: 'Barlow Semi Condensed', sans-serif;
     color: #006161d2;
 } 
@@ -132,10 +135,16 @@ input:focus {
     outline: none;
 }
 
-.submit {
-    /* background-color: rgba(128, 128, 128, 0.616); */
+#submit {
     color: rgba(0, 0, 0, 0.644);
+    background-color: lightgray;
+    width: 300px;
     margin-top: 15px;
     border-radius: 10px;
-    justify-self: center;
+    justify-items: center;
+    text-align: center;
+}
+
+#submit:hover {
+    cursor: pointer;
 }

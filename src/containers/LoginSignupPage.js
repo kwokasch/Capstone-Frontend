@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './../stylesheets/LoginSignupPage.css';
 
+const BASE_URL = "http://localhost:3000"
+
 export class LoginSignupPage extends Component {
     state = {
         loginFormDisplayed: false,
@@ -20,9 +22,10 @@ export class LoginSignupPage extends Component {
     }
 
     formLink = (event) => {
-        this.setState({
-            loginFormDisplayed: !this.state.loginFormDisplayed
-        })
+        console.log("clicked")
+        // this.setState({
+        //     loginFormDisplayed: !this.state.loginFormDisplayed
+        // })
     }
 
     handleSubmit = (event) => {
@@ -30,9 +33,38 @@ export class LoginSignupPage extends Component {
 
         const { firstName, lastName, phoneNumber, email, password } = this.state.currentUser
 
-        this.props.postUser({ firstName, lastName, phoneNumber, email, password })
+        this.postUser({ firstName, lastName, phoneNumber, email, password })
+
+        this.setState({
+            currentUser: {
+                firstName: "",
+                lastName: "",
+                phoneNumber: "",
+                email: "",
+                password: ""
+            }
+        })
     }
     
+    postUser = (user) => {
+        fetch(`${BASE_URL}/users`, {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user)
+        }).then(response => response.json())
+        .then(response => {
+          if(!response.error){
+            this.props.setUser(response)
+            this.props.history.push('/lostfound');
+          } else {
+            console.log(response.error)
+          }
+        })
+        .catch(error => console.log(error))
+      }
+
     handleChange = (event) => {
         const currentUser = this.state.currentUser
         currentUser[event.target.name] = event.target.value 
@@ -67,11 +99,7 @@ export class LoginSignupPage extends Component {
                                 <label className="field-label">Password</label>
                                 <input type="password" name="password" onChange={this.handleChange}/>
                             </div>
-                            {/* <div className="field">
-                                <label className="field-label">Confirm Password</label>
-                                <input type="password" name="password"/>
-                            </div> */}
-                            <input type="submit" value="Submit"/>
+                            <input id="submit" type="submit" value="Submit"/>
                             <div className="login-link">
                                 <p onClick={this.formLink}>Already a user?</p>
                             </div>
@@ -82,22 +110,20 @@ export class LoginSignupPage extends Component {
                             <h2>Login!</h2>
                             <div className="field">
                                 <label className="field-label">Email</label>
-                                <input type="text" />
+                                <input type="text" onChange={this.handleChange}/>
                             </div>
                             <div className="field">
                                 <label className="field-label">Password</label>
-                                <input type="password" />
+                                <input type="password" onChange={this.handleChange}/>
                             </div>
-                            <button className="submit" onClick={this.handleChange}>Submit</button>
+                            <input id="submit" type="submit" value="Submit" onClick={this.props.history.push('/lostfound')}/>
                             <div className="signup-link">
-                                <p onClick={this.formLink}>Already a user?</p>
+                                <p onClick={this.formLink}>Not a user? Create an account!</p>
                             </div>
                         </form >
                     )
                 }
-
-                
-                
+ 
             </div>
         )
     }

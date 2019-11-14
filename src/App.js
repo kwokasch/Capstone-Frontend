@@ -5,7 +5,7 @@ import Header from './components/Header';
 import SubHeader from './components/SubHeader';
 import NavBar from './components/NavBar';
 import LoginSignupPage from './containers/LoginSignupPage';
-// import LostFoundPage from './containers/LostFoundPage';
+import LostFoundPage from './containers/LostFoundPage';
 import './App.css';
 
 const BASE_URL = "http://localhost:3000"
@@ -15,16 +15,10 @@ class App extends Component {
     currentUser: null
   }
 
-  postUser = (user) => {
-    console.log(user)
-    fetch(`${BASE_URL}/users`, {
-      method: "POST",
-      headers: {
-          "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user)
-    }).then(response => response.json())
-    .then(console.log)
+  setUser = (user) => {
+    this.setState({
+      currentUser: user
+    })
   }
 
   render(){
@@ -40,12 +34,11 @@ class App extends Component {
                 <SubHeader />
             </div>
           </header>
-          <LoginSignupPage postUser={this.postUser} />
         </div>
           <Switch>
             <Route exact path="/" component={IntroPage} />
-            <Route exact path="/login" component={LoginSignupPage} />
-            {/* <Route exact path="/lostfound" component={LostFoundPage} /> */}
+            <Route exact path="/login" render={props => <LoginSignupPage {...props} setUser={this.setUser}/>} />
+            <Route exact path="/lostfound" component={LostFoundPage} />
           </Switch>
       </Router>
     );

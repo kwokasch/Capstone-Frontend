@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+}
+
+.profile-container {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.image-container {
+    height: 400px;
+    width: 100%;
+    background-image: url('../images/black-and-white-dog-1938125.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.create-profile > h2 {
+    font-family: 'Baloo', cursive;
+    color: #016969;
+    text-align: center;
+    font-size: 40px;
+    padding-bottom: 15px;
+}
+
+.login input {
+    display: block;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 20px;
+    color: #016969d5;
+    height: 35px;
+    width: 280px;
+    border-radius: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: white;
+    border: 1px solid white;
+}
+
+.field {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.field-label {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    color: rgba(128, 128, 128, 0.482);
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.field:hover {
+    border: 1px solid #014242a1;
+}
+
+input:focus {
+    outline: none;
+}
+
+#submit {
+    color: rgba(0, 0, 0, 0.644);
+    background-color: lightgray;
+    width: 300px;
+    margin-top: 15px;
+    border-radius: 10px;
+    justify-items: center;
+    text-align: center;
+}
+
+#submit:hover {
+    cursor: pointer;
+}
