@@ -35,6 +35,8 @@ export class LoginSignupPage extends Component {
 
         this.postUser({ firstName, lastName, phoneNumber, email, password })
 
+        
+
         this.setState({
             currentUser: {
                 firstName: "",
@@ -116,7 +118,12 @@ export class LoginSignupPage extends Component {
                                 <label className="field-label">Password</label>
                                 <input type="password" onChange={this.handleChange}/>
                             </div>
-                            <input id="submit" type="submit" value="Submit" onClick={this.props.history.push('/lostfound')}/>
+                            <input 
+                                id="submit" 
+                                type="submit" 
+                                value="Submit" 
+                                // onClick={this.props.history.push('/lostfound')}
+                            />
                             <div className="signup-link">
                                 <p onClick={this.formLink}>Not a user? Create an account!</p>
                             </div>

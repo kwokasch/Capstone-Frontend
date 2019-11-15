@@ -12,12 +12,19 @@ const BASE_URL = "http://localhost:3000"
 
 class App extends Component {
   state = {
-    currentUser: null
+    currentUser: null,
+    currentPet: null
   }
 
   setUser = (user) => {
     this.setState({
       currentUser: user
+    })
+  }
+
+  setPet = (pet) => {
+    this.setState({
+      currentPet: pet
     })
   }
 
@@ -28,7 +35,7 @@ class App extends Component {
           <header>
             <div className="header-container">
                 <Header />
-                <NavBar />
+                <NavBar currentUser={this.state.currentUser}/>
             </div>
             <div className="subheader">
                 <SubHeader />
@@ -38,7 +45,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={IntroPage} />
             <Route exact path="/login" render={props => <LoginSignupPage {...props} setUser={this.setUser}/>} />
-            <Route exact path="/lostfound" component={LostFoundPage} />
+            <Route exact path="/lostfound" render={props => <LostFoundPage {...props} setPet={this.setPet}/>} />
           </Switch>
       </Router>
     );
