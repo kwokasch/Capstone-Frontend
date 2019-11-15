@@ -11,9 +11,13 @@ export class LostFoundPage extends Component {
     render() {
         return (
             <div className="profile-container">
-                <div className="image-container"></div>
+                <div className="photo-container"></div>
+                <div className="button-container">
+                    <button className="lost-button">Lost a Pet?</button>
+                    <button className="found-button">Found a Pet?</button>
+                </div>
                 <form className="create-profile" onSubmit={this.handleSubmit}>
-                    <h2>Sign Up!</h2>
+                    <h2>Create A Pet Profile</h2>
                     <div className="field">
                         <label className="field-label">First Name</label>
                         <input type="text" name="firstName" onChange={this.handleChange}/>

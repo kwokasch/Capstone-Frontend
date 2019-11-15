@@ -12,37 +12,6 @@ export default function IntroPage (){
                     <h3>Helping Pets Find Their Way Home</h3>
                 </div>
             </div>
-            <div className="info-container">
-                <div className="info-box">Lost A Pet?
-                    <h3>Losing a pet is upsetting and stressful.</h3>
-                    <p>Create a profile for your pet and get the word out there!</p>
-                    <Link 
-                        className="link" 
-                        to={{
-                            pathname: '/login',
-                            state: {
-                                redirect_to: 'lost'
-                            }
-                        }}>
-                        <button>Get Started</button>    
-                    </Link>
-                </div>
-                <div className="info-box">Found A Pet?
-                <h3>Thank you for helping a pet in their time of need!</h3>
-                    <p>Create a profile for the pet and help reunite them with their owner!</p>
-                    <Link 
-                        className="link" 
-                        to={{
-                            pathname: '/login',
-                            state: {
-                                redirect_to: 'found'
-                            }
-                        }}>
-                        <button>Get Started</button>    
-                    </Link>
-                        
-                </div>
-            </div>
         </body>
     )
 }

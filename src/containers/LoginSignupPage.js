@@ -22,10 +22,10 @@ export class LoginSignupPage extends Component {
     }
 
     formLink = (event) => {
-        console.log("clicked")
-        // this.setState({
-        //     loginFormDisplayed: !this.state.loginFormDisplayed
-        // })
+        // console.log("clicked")
+        this.setState({
+            loginFormDisplayed: !this.state.loginFormDisplayed
+        })
     }
 
     handleSubmit = (event) => {

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import IntroPage from './containers/IntroPage';
+import LoginSignupPage from './containers/LoginSignupPage';
+import LostFoundPage from './containers/LostFoundPage';
 import Header from './components/Header';
 import SubHeader from './components/SubHeader';
 import NavBar from './components/NavBar';
-import LoginSignupPage from './containers/LoginSignupPage';
-import LostFoundPage from './containers/LostFoundPage';
 import './App.css';
 
 const BASE_URL = "http://localhost:3000"
