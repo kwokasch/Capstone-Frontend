@@ -20,3 +20,9 @@ img {
     margin-top: 15px;
     align-content: center;
 }
+
+@media (max-width: 900px) {
+    .logo-box {
+        height: 7.8vw;
+    }
+}

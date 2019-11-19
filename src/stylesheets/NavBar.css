@@ -19,3 +19,10 @@
     text-decoration: none;
     color: #b7dfdf;
 }
+
+
+@media (max-width: 900px) {
+    .nav-bar {
+        font-size: 100%;
+    }
+}

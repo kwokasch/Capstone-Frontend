@@ -17,12 +17,12 @@
     flex-flow: row wrap;
     height: 460px;
     width: 100%;
-    background-image: url('../images/black-and-white-dog-1938125.jpg');
+    background-image: url('https://i.imgur.com/tdAu0TA.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     padding: 10px;
-    box-shadow: 0px 2px 10px #012020f8;
+    box-shadow: 0px 2px 5px #012020f8;
 }
 
 .button-container {

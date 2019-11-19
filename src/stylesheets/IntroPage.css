@@ -16,7 +16,7 @@ body {
 .image-container {
     display: flex;
     height: 552px;
-    background-image: url('../images/Background_Intro.png');
+    background-image: url('https://i.imgur.com/029iEhb.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     justify-content: center;
@@ -49,6 +49,12 @@ body {
     box-shadow: 0 1px 2px #0142429f;
     object-fit: contain;
     height: 85px;
+}
+
+@media (max-width: 900px) {
+    .header-container {
+        height: 10vw;
+    }
 }
 
 .subheader {

@@ -73,7 +73,7 @@ export class LostFoundPage extends Component {
         this.setState({ currentPet })
     }
 
-    changeLostStatus = (event) => {
+    scrollToProfile = (event) => {
         // console.log(this.state.currentPet["lostStatus"])
         // if (event.target.id === "lost"){
         //     this.setState({ currentPet.lostStatus: true })
@@ -87,8 +87,8 @@ export class LostFoundPage extends Component {
             <div className="profile-container">
                 <div className="photo-container"></div>
                 <div className="button-container">
-                    <button id="lost" className="lost-button" onClick={this.changeLostStatus}>Lost a Pet?</button>
-                    <button id="found" className="found-button" onClick={this.changeLostStatus}>Found a Pet?</button>
+                    <button id="lost" className="lost-button" onClick={this.scrollToProfile}>Lost a Pet?</button>
+                    <button id="found" className="found-button" onClick={this.scrollToProfile}>Found a Pet?</button>
                 </div>
                 <form className="create-profile" onSubmit={this.handleSubmit}>
                     <h2>Create A Pet Profile</h2>
