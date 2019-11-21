@@ -5,13 +5,13 @@
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-weight: 600;
     color: #b7dfdf;
-    font-size: 22px;
     flex-flow: row wrap;
     flex-direction: flex-end;
     text-align: center;
     align-content: center;
     margin: 20px;
     justify-content: space-around;
+    font-size: 22px;
     width: 28%;
 }
 

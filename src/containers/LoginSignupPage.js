@@ -22,7 +22,7 @@ export class LoginSignupPage extends Component {
     }
 
     formLink = (event) => {
-        // console.log("clicked")
+
         this.setState({
             loginFormDisplayed: !this.state.loginFormDisplayed
         })
@@ -34,8 +34,6 @@ export class LoginSignupPage extends Component {
         const { firstName, lastName, phoneNumber, email, password } = this.state.currentUser
 
         this.postUser({ firstName, lastName, phoneNumber, email, password })
-
-        
 
         this.setState({
             currentUser: {
