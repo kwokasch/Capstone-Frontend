@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import IntroPage from './containers/IntroPage';
 import SearchPage from './containers/SearchPage';
 import LoginSignupPage from './containers/LoginSignupPage';
+import UserProfile from './components/UserProfile';
+import UserHome from './containers/UserHome';
 import LostFoundPage from './containers/LostFoundPage';
 import Header from './components/Header';
 import SubHeader from './components/SubHeader';
@@ -17,8 +19,6 @@ class App extends Component {
     currentUser: null,
     currentPet: null
   }
-
-  // componentDidMount
 
   setUser = (user) => {
     this.setState({
@@ -49,6 +49,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={IntroPage} />
           <Route exact path="/login" render={props => <LoginSignupPage {...props} setUser={this.setUser}/>} />
+          <Route exact path="/userprofile/:id" render={props => <UserProfile {...props} setUser={this.setUser} currentUser={this.state.currentUser}/>} />
           <Route exact path="/lostfound" render={props => <LostFoundPage {...props} setPet={this.setPet}/>} />
           <Route exact path="/search" render={props => <SearchPage {...props} allPets={this.state.allPets}/>} />
         </Switch>

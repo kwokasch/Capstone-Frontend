@@ -8,6 +8,7 @@
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
     "curl": "^0.1.4",
+    "passport-jwt": "^4.0.0",
     "react": "^16.11.0",
     "react-burger-menu": "^2.6.12",
     "react-dom": "^16.11.0",

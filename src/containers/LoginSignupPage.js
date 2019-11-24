@@ -22,7 +22,6 @@ export class LoginSignupPage extends Component {
     }
 
     formLink = (event) => {
-
         this.setState({
             loginFormDisplayed: !this.state.loginFormDisplayed
         })
@@ -57,7 +56,7 @@ export class LoginSignupPage extends Component {
         .then(response => {
           if(!response.error){
             this.props.setUser(response)
-            this.props.history.push('/lostfound');
+            this.props.history.push('/userprofile');
           } else {
             console.log(response.error)
           }
@@ -101,7 +100,8 @@ export class LoginSignupPage extends Component {
                             </div>
                             <input id="submit" type="submit" value="Submit"/>
                             <div className="login-link">
-                                <p onClick={this.formLink}>Already a user?</p>
+                                <a href="http://localhost:3000/auth/google">Sign In with Google</a>
+                                {/* <p onClick={this.formLink}>Already a user?</p> */}
                             </div>
                         </form>
                     )

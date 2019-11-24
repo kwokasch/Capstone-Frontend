@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './../stylesheets/LostFoundPage.css';
+
 const BASE_URL = "http://localhost:3000"
 
 export class LostFoundPage extends Component {

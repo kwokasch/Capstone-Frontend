@@ -10,7 +10,7 @@ export default function NavBar(props) {
             {
                 props.currentUser === null
                 ? <Link className="link" to="/login">Login / Sign Up</Link>
-                : <h2>Hello, {props.currentUser.firstName}!</h2>
+                : <Link className="link" to="/">Logout</Link>
             }
         </div>
     )
