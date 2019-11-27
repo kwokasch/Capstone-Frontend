@@ -1,134 +1,35 @@
 import React, { Component } from 'react';
+import SignupForm from '../components/SignupForm';
+import LoginForm from '../components/LoginForm';
 import './../stylesheets/LoginSignupPage.css';
 
 const BASE_URL = "http://localhost:3000"
 
 export class LoginSignupPage extends Component {
     state = {
-        loginFormDisplayed: false,
-        currentUser: {
-            firstName: "",
-            lastName: "",
-            phoneNumber: "",
-            email: "",
-            password: ""
-        }
-    }
-    
-    static defaultProps = {
-        location: {
-            existingUser: false
-        }
+        loginFormDisplayed: false
     }
 
-    formLink = (event) => {
+    isLoginFormDisplayed = trueFalse => {
         this.setState({
-            loginFormDisplayed: !this.state.loginFormDisplayed
+            loginFormDisplayed: trueFalse
         })
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault()
-
-        const { firstName, lastName, phoneNumber, email, password } = this.state.currentUser
-
-        this.postUser({ firstName, lastName, phoneNumber, email, password })
-
-        this.setState({
-            currentUser: {
-                firstName: "",
-                lastName: "",
-                phoneNumber: "",
-                email: "",
-                password: ""
-            }
-        })
-    }
-    
-    postUser = (user) => {
-        fetch(`${BASE_URL}/users`, {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-          },
-          body: JSON.stringify(user)
-        }).then(response => response.json())
-        .then(response => {
-          if(!response.error){
-            this.props.setUser(response)
-            this.props.history.push('/userprofile');
-          } else {
-            console.log(response.error)
-          }
-        })
-        .catch(error => console.log(error))
-      }
-
-    handleChange = (event) => {
-        const currentUser = this.state.currentUser
-        currentUser[event.target.name] = event.target.value 
-        this.setState({ currentUser })
     }
     
     render() {
         return (
-            <div className="form-container">
-                {
-                    this.state.loginFormDisplayed === false
-                    ? (
-                        <form className="sign-up" onSubmit={this.handleSubmit}>
-                            <h2>Sign Up!</h2>
-                            <div className="field">
-                                <label className="field-label">First Name</label>
-                                <input type="text" name="firstName" onChange={this.handleChange}/>
-                            </div>
-                            <div className="field">
-                                <label className="field-label">Last Name</label>
-                                <input type="text" name="lastName" onChange={this.handleChange}/>
-                            </div>
-                            <div className="field">
-                                <label className="field-label">Phone Number</label>
-                                <input type="text" name="phoneNumber" onChange={this.handleChange}/>
-                            </div>
-                            <div className="field">
-                                <label className="field-label">Email</label>
-                                <input type="text" name="email" onChange={this.handleChange}/>
-                            </div>
-                            <div className="field">
-                                <label className="field-label">Password</label>
-                                <input type="password" name="password" onChange={this.handleChange}/>
-                            </div>
-                            <input id="submit" type="submit" value="Submit"/>
-                            <div className="login-link">
-                                <a href="http://localhost:3000/auth/google">Sign In with Google</a>
-                                {/* <p onClick={this.formLink}>Already a user?</p> */}
-                            </div>
-                        </form>
-                    )
-                    : (
-                        <form className="login">
-                            <h2>Login!</h2>
-                            <div className="field">
-                                <label className="field-label">Email</label>
-                                <input type="text" onChange={this.handleChange}/>
-                            </div>
-                            <div className="field">
-                                <label className="field-label">Password</label>
-                                <input type="password" onChange={this.handleChange}/>
-                            </div>
-                            <input 
-                                id="submit" 
-                                type="submit" 
-                                value="Submit" 
-                                // onClick={this.props.history.push('/lostfound')}
-                            />
-                            <div className="signup-link">
-                                <p onClick={this.formLink}>Not a user? Create an account!</p>
-                            </div>
-                        </form >
-                    )
-                }
- 
+            <div>
+                <div className="image-container">
+                    <div className="background-image">
+                        <div className="form-container">
+                            {
+                                this.state.loginFormDisplayed === false
+                                ? <SignupForm isLoginFormDisplayed={this.isLoginFormDisplayed} setUser={this.props.setUser}/>
+                                : <LoginForm isLoginFormDisplayed={this.isLoginFormDisplayed} setUser={this.props.setUser}/>
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
