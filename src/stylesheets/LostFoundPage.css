@@ -7,8 +7,9 @@
     flex-flow: column;
     height: 100%;
     width: 100%;
-    justify-content: flex-start;
-    background-color: #d5ecec98;
+    justify-content: center;
+    align-items: center;
+    background-color: #d5ecec2d;
 }
 
 .photo-container {
@@ -84,14 +85,16 @@
     flex-direction: row;
     flex-flow: row wrap;
     background-color: white;
-    width: 100%;
-    height: 95%;
+    width: 90%;
+    height: 80%;
     align-self: center;
     align-content: center;
     justify-content: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
     padding-top: 20px;
     padding-bottom: 10px;
-    /* border-radius: 10px; */
+    border-radius: 10px;
     box-shadow: 0 1px 5px #0142429f;
 }
 
@@ -109,21 +112,36 @@
 
 .profile-info {
     width: 100%;
-    height: 500px;
-    padding-left: 20px;
-    padding-right: 10px;
-    padding-bottom: 0px;
+    height: 460px;
+    /* padding-left: 20px;
+    padding-right: 10px; */
+    /* padding-bottom: 0px; */
     display: flex;
     flex-flow: row wrap;
     align-content: center;
     justify-content: center;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.514);
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 30px;
 }
 
+.lost-info > h2 {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    justify-self: flex-start;
+    height: 50px;
+    width: 100%;
+    color: #016969;
+    text-align: center;
+    font-size: 40px;
+    padding-top: 10px;
+    margin-bottom: 30px;
+}
 
 .pet-image-box {
     display: flex;
     margin-right: 2%;
-    width: 30vw;
+    width: 20%;
     justify-content: center;
 }
 
@@ -137,11 +155,22 @@
 
 .form-box {
     display: flex;
-    flex-flow: column wrap;
-    width: 60%;
+    width: 40%;
     height: 440px;
     justify-content: center;
-    align-content: top;
+    align-items: center;
+    padding: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+.pet-info-form-box {
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    height: 440px;
+    justify-content: center;
+    align-content: center;
     padding: 20px;
     padding-left: 20px;
     padding-bottom: 20px;
@@ -203,34 +232,83 @@ textarea {
     color: #016969d5;
 }
 
+.lost-info {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.lost-form-box {
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+.lost-form-inputs {
+    justify-content: center;
+}
+
+.lost-form-box input {
+    display: flex;
+    flex-flow: column wrap;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 20px;
+    color: #016969d5;
+    height: 30px;
+    width: 280px;
+    border-radius: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: white;
+    border: 1px solid white;
+}
+
 .calendar {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    width: 400px;
+    height: 100px; 
+    justify-content: center;
+}
+
+#calendar {
+    display: flex;
+    flex-flow: row wrap;
+    align-self: center;
+    width: 50%;
+    height: 40%;
+}
+
+.lost-comments {
     border: 1px solid lightgray;
     border-radius: 5px;
     margin: 10px;
-    margin-left: 15px;
-    margin-right: 15px;
-    width: 300px;
-    height: 140px; 
-}
-
-.calendar > input {
-    /* border: 1px solid lightgray;
-    border-radius: 5px;
-    margin: 10px;
-    margin-left: 15px;
-    margin-right: 15px; */
-    /* width: 300px; */
-    height: 100px;
+    margin: 25px;
+    width: 400px;
+    height: 140px;
 }
 
 .map-box {
-    border: 1px solid lightgray;
-    border-radius: 5px;
     margin: 10px;
     margin-left: 15px;
     margin-right: 15px;
-    width: 300px;
-    height: 60px;
+    width: 400px;
+    height: 400px;
+}
+
+.map-box > div > div {
+    width: 399px !important;
+    height: 399px !important;
+    border: 1px solid lightgray;
+    border-radius: 4px;
 }
 
 .input-field-label {
@@ -238,6 +316,7 @@ textarea {
     color: rgba(128, 128, 128, 0.482);
     padding-left: 10px;
     font-size: 14px;
+    width: 20%;
 }
 
 .input-field:hover {
@@ -252,16 +331,22 @@ input:focus {
     outline: none;
 }
 
+.submit-button-holder {
+    display: flex;
+    justify-content: center;
+}
+
 #submit-button {
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-size: 18px;
     background-color: rgba(211, 211, 211, 0.5);
     color: rgba(0, 0, 0, 0.644);
     width: 350px;
-    height: 30px;
-    border-radius: 10px;
-    text-align: center;
-    margin-left: 380px;
+    height: 35px;
+    border-radius: 12px;
+    /* justify-self: center; */
+    align-items: center;
+    /* margin: 25px; */
 }
 
 #submit-button:hover {
