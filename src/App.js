@@ -8,7 +8,6 @@ import LostFoundPage from './containers/LostFoundPage';
 import Header from './components/Header';
 import SubHeader from './components/SubHeader';
 import NavBar from './components/NavBar';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
 import './App.css';
 
 // const BASE_URL = "http://localhost:3000"

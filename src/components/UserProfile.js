@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './../stylesheets/UserProfile.css';
 
-const BASE_URL = "http://localhost:3000"
+// const BASE_URL = "http://localhost:3000"
 
 export class UserProfile extends Component {
     state = {

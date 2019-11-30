@@ -3,7 +3,7 @@ import SignupForm from '../components/SignupForm';
 import LoginForm from '../components/LoginForm';
 import './../stylesheets/LoginSignupPage.css';
 
-const BASE_URL = "http://localhost:3000"
+// const BASE_URL = "http://localhost:3000"
 
 export class LoginSignupPage extends Component {
     state = {

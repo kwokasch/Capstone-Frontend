@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import PetCard from '../components/PetCard'
+import SearchForm from '../components/SearchForm'
 
 const BASE_URL = "http://localhost:3000"
 
-export class SearchPage extends Component {
+export default class SearchPage extends Component {
     state = {
         allPets: []
     }
@@ -14,16 +15,13 @@ export class SearchPage extends Component {
         this.setState({ allPets: data })
         console.log(this.state.allPets)
     }   
-
-    
-
+  
     render() {
         return (
             <div className="card-container">
-                {/* <PetCard allPets={this.state.allPets}/> */}
+                <SearchForm />
+                <PetCard allPets={this.state.allPets}/>
             </div>
         )
     }
 }
-
-export default SearchPage

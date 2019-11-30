@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import MapContainer from '../components/MapContainer'
 import './../stylesheets/LostFoundPage.css';
-// require('dotenv')
+require('dotenv').config()
 
 const BASE_URL = "http://localhost:3000"
 
@@ -135,6 +135,9 @@ export class LostFoundPage extends Component {
                     <div className="lost-info">
                         <h2>When and where did you lose your pet?</h2>
                         <div className="lost-form-box">
+                            <div className="map-box">
+                                <MapContainer />
+                            </div>
                             <div className="lost-form-inputs">
                                 <div className="calendar">
                                     <label className="input-field-label">Date Lost</label>
@@ -148,11 +151,6 @@ export class LostFoundPage extends Component {
                                     <input id="submit-button" type="submit" value="Submit"/>
                                 </div>
                             </div>
-                            <div className="map-box">
-                                <MapContainer
-                                />
-                            </div>
-                            
                         </div>
                     </div>
                 </form>
