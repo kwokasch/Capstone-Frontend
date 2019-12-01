@@ -15,7 +15,7 @@ export class LostFoundPage extends Component {
             gender: "",
             size: "",
             color: "",
-            age: 0,
+            age: "",
             breed: "",
             temperament: "",
             comments: "",

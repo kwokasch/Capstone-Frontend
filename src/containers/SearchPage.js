@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../stylesheets/SearchPage.css'
 import PetCard from '../components/PetCard'
 import SearchForm from '../components/SearchForm'
 
@@ -13,14 +14,21 @@ export default class SearchPage extends Component {
         const response = await fetch(`${BASE_URL}/petfinder`)
         const data = await response.json()
         this.setState({ allPets: data })
-        console.log(this.state.allPets)
     }   
+
+    searchResults = (result) => {
+        this.setState({
+            allPets: result
+        })
+    }
   
     render() {
         return (
-            <div className="card-container">
-                <SearchForm />
-                <PetCard allPets={this.state.allPets}/>
+            <div className="search-page">
+                <SearchForm searchResults={this.searchResults}/>
+                <div className="card-container"> 
+                    {this.state.allPets.map(pet => <PetCard pet={pet}/>)}   
+                </div>
             </div>
         )
     }
