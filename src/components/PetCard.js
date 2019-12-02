@@ -15,39 +15,19 @@ export default function PetCard({pet}) {
 
     return (
         <div className="pet-card" key={pet.id}>
-            <img src={petPhoto} alt="Pet"/>
-            <h1>Name: {pet.name}</h1> 
-            <h1>Species: {pet.species}</h1> 
-            <h1>Gender: {pet.gender}</h1> 
-            <h1>Primary Breed: {pet.breeds.primary || "Unknown"}</h1> 
-            <h1>Size: {pet.size}</h1> 
-            <h1>Colors: {allColors || "Unknown"}</h1> 
-            <h1>Age: {pet.age}</h1> 
-            <h1>Postal Code: {postalCode || "Unknown"}</h1> 
+            <div className="search-pet-image">
+                <img className="search-img" src={petPhoto} alt="Pet"/>
+            </div>
+            <div className="search-pet-info">
+                <h1>{pet.name}</h1> 
+                {/* <h1>Species: {pet.species}</h1>  */}
+                <h1>Gender: {pet.gender}</h1> 
+                <h1>Primary Breed: {pet.breeds.primary || "Unknown"}</h1> 
+                {/* <h1>Size: {pet.size}</h1>  */}
+                <h1>Colors: {allColors || "Unknown"}</h1> 
+                <h1>Age: {pet.age}</h1> 
+                {/* <h1>Postal Code: {postalCode || "Unknown"}</h1>  */}
+            </div>
         </div>
     )
 }
-
-// age: "Baby"
-// attributes: {spayed_neutered: true, house_trained: false, declawed: null, special_needs: false, shots_current: false}
-// breeds: {primary: "Cattle Dog", secondary: "Mixed Breed", mixed: true, unknown: false}
-// coat: null
-// colors: {primary: null, secondary: null, tertiary: null}
-// contact: {email: "dawgboss@gmail.com", phone: "505-753-8662", address: {…}}
-// description: null
-// distance: null
-// environment: {children: null, dogs: null, cats: null}
-// gender: "Female"
-// id: 46726880
-// name: "Julie"
-// organization_id: "NM08"
-// photos: []
-// published_at: "2019-12-01T19:06:25+0000"
-// size: "Medium"
-// species: "Dog"
-// status: "adoptable"
-// status_changed_at: "2019-12-01T19:06:25+0000"
-// tags: []
-// type: "Dog"
-// url: "https://www.petfinder.com/dog/julie-46726880/nm/espanola/espanola-valley-humane-society-nm08/?referrer_id=910ec99f-98b5-49f2-a7cf-30ec62ef52ee"
-// _links: {self: {…}, type: {…}, organization: {…}}

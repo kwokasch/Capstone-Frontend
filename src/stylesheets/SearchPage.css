@@ -35,8 +35,7 @@
     display: flex;
     flex-flow: column wrap;
     width: 300px;
-    height: 700px;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: center;
     padding: 20px;
     padding-left: 20px;
@@ -50,7 +49,7 @@
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-size: 20px;
     color: #016969d5;
-    height: 20px;
+    height: 18px;
     width: 260px;
     border-radius: 5px;
     padding-left: 12px;
@@ -64,7 +63,7 @@
     border-radius: 5px;
     margin: 10px 15px;
     width: 275px;
-    height: 50px;
+    height: 45px;
 }
 
 .search-input-field-label {
@@ -82,34 +81,58 @@
 .card-container {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     overflow: scroll;
-    height: calc(100% - 30px);
+    height: 100%;
     width: 100%;
-    background-color: white;
-    margin: 15px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px #01202076;
+    /* background-color: white; */
+    /* margin: 15px; */
+    /* border-radius: 5px; */
+    /* box-shadow: 0px 2px 5px #01202076; */
     scroll-behavior: smooth;
 }
 
 .pet-card {
-    border: 1px solid #00777776;
-    box-shadow: 0px 1px 3px #01202076;
-    width: 250px;
-    height: 300px;
+    /* border: 0.5px solid #00777748; */
+    background-color: white;
+    box-shadow: -1px 2px 5px #01202076;
+    width: 300px;
+    height: 400px;
     margin: 15px 5px 15px 5px;
-    padding: 5px;
+    padding: 15px;
     border-radius: 5px;
 }
 
-.submit-button-holder {
+.search-pet-image {
     display: flex;
+    align-items: center;
     justify-content: center;
-    width: 250px;
+    height: 230px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-#submit-button {
+.search-img {
+    object-fit: scale-down;
+    width: 100%;
+    border-radius: 5px;
+    align-self: center;
+}
+
+.search-pet-info {
+    border: 1px solid gray;
+}
+
+.search-submit-button-holder {
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#search-submit-button {
+    display: flex;
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-size: 18px;
     background-color: rgba(211, 211, 211, 0.5);
@@ -117,11 +140,11 @@
     width: 100px;
     height: 35px;
     border-radius: 12px;
-    /* justify-self: center; */
-    align-items: center;
-    /* margin: 25px; */
+    text-align: center;
+    align-content: center;
+    justify-content: center;
 }
 
-#submit-button:hover {
+#search-submit-button:hover {
     cursor: pointer;
 }

@@ -78,8 +78,8 @@ export default class SearchForm extends Component {
                         <label className="search-input-field-label">Postal Code</label>
                         <input type="text" name="location" onChange={this.handleChange}/>
                     </div>
-                    <div className="submit-button-holder">
-                        <input id="submit-button" type="submit" value="Submit"/>
+                    <div className="search-submit-button-holder">
+                        <input id="search-submit-button" type="submit" value="Submit"/>
                     </div>
                 </form>
             </div>
