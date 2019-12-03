@@ -27,7 +27,7 @@ export default class SearchPage extends Component {
             <div className="search-page">
                 <SearchForm searchResults={this.searchResults}/>
                 <div className="card-container"> 
-                    {this.state.allPets.map(pet => <PetCard pet={pet}/>)}   
+                    {this.state.allPets.map(pet => <PetCard pet={pet} key={pet.id}/>)}   
                 </div>
             </div>
         )

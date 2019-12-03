@@ -49,7 +49,8 @@ export default class SignupForm extends Component {
         }).then(response => response.json())
         .then(response => {
           if(!response.error){
-            this.props.history.push('/userprofile');
+            // this.props.history.push('/userprofile');
+            window.location.href = "http://localhost:3001/userprofile"
           } else {
             console.log(response.error)
           }
@@ -67,6 +68,8 @@ export default class SignupForm extends Component {
         return (
             <form className="sign-up" onSubmit={this.handleSubmit}>
                 <h2>Sign Up!</h2>
+                <a className="google-button" href="http://localhost:3000/auth/google"> </a>
+                <h3> - or - </h3>
                 <div className="field">
                     <label className="field-label">First Name</label>
                     <input type="text" name="firstName" onChange={this.handleChange}/>
@@ -88,8 +91,7 @@ export default class SignupForm extends Component {
                     <input type="password" name="password" onChange={this.handleChange}/>
                 </div>
                 <input id="submit" type="submit" value="Submit"/>
-                <div className="login-link">
-                    {/* <a href="http://localhost:3000/auth/google">Sign In with Google</a> */}
+                <div className="login-link"> 
                     <p onClick={this.formLink}>Already a user?</p>
                 </div>
             </form>

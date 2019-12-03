@@ -20,7 +20,6 @@ export default class SearchForm extends Component {
             }
         }
     }
-    
 
     handleChange = event => {
         const searchCriteria = this.state.searchCriteria

@@ -3,11 +3,10 @@ import SignupForm from '../components/SignupForm';
 import LoginForm from '../components/LoginForm';
 import './../stylesheets/LoginSignupPage.css';
 
-// const BASE_URL = "http://localhost:3000"
-
 export class LoginSignupPage extends Component {
     state = {
-        loginFormDisplayed: false
+        loginFormDisplayed: false,
+
     }
 
     isLoginFormDisplayed = trueFalse => {
@@ -24,8 +23,8 @@ export class LoginSignupPage extends Component {
                         <div className="form-container">
                             {
                                 this.state.loginFormDisplayed === false
-                                ? <SignupForm isLoginFormDisplayed={this.isLoginFormDisplayed} setUser={this.props.setUser}/>
-                                : <LoginForm isLoginFormDisplayed={this.isLoginFormDisplayed} setUser={this.props.setUser}/>
+                                ? <SignupForm isLoginFormDisplayed={this.isLoginFormDisplayed} setUser={this.props.setUser} isLoggedIn={this.props.isLoggedIn}/>
+                                : <LoginForm isLoginFormDisplayed={this.isLoginFormDisplayed} setUser={this.props.setUser} isLoggedIn={this.props.isLoggedIn}/>
                             }
                         </div>
                     </div>

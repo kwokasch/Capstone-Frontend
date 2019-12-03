@@ -105,12 +105,12 @@
 
 .search-pet-image {
     display: flex;
-    align-items: center;
     justify-content: center;
     height: 230px;
     overflow: hidden;
     border-radius: 5px;
     margin-bottom: 10px;
+    background-color: rgba(211, 211, 211, 0.397);
 }
 
 .search-img {
@@ -121,7 +121,8 @@
 }
 
 .search-pet-info {
-    border: 1px solid gray;
+    justify-content: center;
+    text-align: center;
 }
 
 .search-submit-button-holder {

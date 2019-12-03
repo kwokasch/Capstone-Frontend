@@ -25,23 +25,29 @@
 .form-container {
     display: flex;
     height: 552px;
-    width: 100%;
     justify-content: center;
     vertical-align: text-top;
 }
 
 .sign-up {
-    display: flex;
-    flex-direction: row;
-    flex-flow: column wrap;
+    display: inline-block;
     background-color: white;
     width: 420px;
-    height: 500px;
-    align-self: center;
+    height: 580px;
     align-content: center;
     justify-content: center;
     border-radius: 10px;
     box-shadow: 0 1px 7px #0142429f;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.sign-up > h3 {
+    text-align: center;
+    padding: 5px;
+    font-size: 20px;
+    color: #016969;
+
 }
 
 .sign-up > h2 {
@@ -49,15 +55,15 @@
     color: #016969;
     text-align: center;
     font-size: 40px;
-    padding-bottom: 15px;
+    padding-top: 20px;
 }
 
 .sign-up input {
     display: block;
     font-family: 'Barlow Semi Condensed', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     color: #016969d5;
-    height: 30px;
+    height: 26px;
     width: 280px;
     border-radius: 5px;
     padding-left: 12px;
@@ -67,12 +73,11 @@
 }
 
 .login-link {
-    width: 300px;
+    width: 100%;
     justify-content: center;
     text-align: center;
     font-style: italic;
     text-decoration: none;
-    padding-top: 25px;
     font-family: 'Barlow Semi Condensed', sans-serif;
     color: #006161d2;
 } 
@@ -111,6 +116,7 @@
     justify-content: center;
     border-radius: 10px;
     box-shadow: 0 1px 7px #0142429f;
+    padding: 10px;
 }
 
 .login > h2 {
@@ -124,9 +130,9 @@
 .login input {
     display: block;
     font-family: 'Barlow Semi Condensed', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     color: #016969d5;
-    height: 35px;
+    height: 26px;
     width: 280px;
     border-radius: 5px;
     padding-left: 12px;
@@ -138,7 +144,12 @@
 .field {
     border: 1px solid lightgray;
     border-radius: 5px;
-    margin: 5px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 50px;
+    justify-content: center;
 }
 
 .field-label {
@@ -158,9 +169,13 @@ input:focus {
 
 #submit {
     color: rgba(0, 0, 0, 0.644);
+    font-size: 18px;
     background-color: lightgray;
-    width: 300px;
-    margin-top: 15px;
+    width: 180px;
+    height: 30px;
+    margin: 20px auto 15px auto;
+    /* margin-top: 15px;
+    margin-top: 15px; */
     border-radius: 10px;
     justify-items: center;
     text-align: center;
@@ -168,4 +183,29 @@ input:focus {
 
 #submit:hover {
     cursor: pointer;
+}
+
+.google-button {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: none;
+    width: 100%;
+    height: 8%;
+    background-image: url('../images/btn_google_signin_light_pressed_web@2x.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    text-decoration: none;
+}
+
+.google-button:focus {
+    outline: none;
+}
+
+.google-button > a {
+    text-decoration: none;
 }
