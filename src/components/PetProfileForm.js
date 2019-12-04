@@ -137,7 +137,7 @@ export default class PetProfileForm extends Component {
                             </div>
                             <div className="chip-id-field">
                                 <label className="input-field-label">Chip ID</label>
-                                <input type="text" name="chipId" onChange={this.handleChange}/>
+                                <input type="text" name="chipId" placeholder="ex: 287C23A455T9891"onChange={this.handleChange}/>
                             </div>
                             <div className="lost-comments">
                                 <label className="input-field-label">Comments</label>

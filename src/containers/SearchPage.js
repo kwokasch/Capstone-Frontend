@@ -11,14 +11,16 @@ export default class SearchPage extends Component {
         localPets: []
     }
 
+
     async componentDidMount(){
         const response = await fetch(`${BASE_URL}/petfinder`)
         const localResponse = await fetch(`${BASE_URL}/pets`)
         const allPets = await response.json()
         const localPets = await localResponse.json()
+        const reverseLocalPets = localPets.reverse()
         
         this.setState({ 
-            allPets: [...allPets, ...localPets]
+            allPets: [...reverseLocalPets, ...allPets]
         })
     }   
 

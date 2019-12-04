@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function PetCard({pet}) {
     const getPhoto = photo => {
-        return photo.small || photo.medium || photo.large || photo.full
+        return photo.medium || photo.large || photo.small || photo.full
     }
     
     const firstPhoto = pet.photos && pet.photos[0];
