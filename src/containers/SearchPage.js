@@ -7,13 +7,19 @@ const BASE_URL = "http://localhost:3000"
 
 export default class SearchPage extends Component {
     state = {
-        allPets: []
+        allPets: [],
+        localPets: []
     }
 
     async componentDidMount(){
         const response = await fetch(`${BASE_URL}/petfinder`)
-        const data = await response.json()
-        this.setState({ allPets: data })
+        const localResponse = await fetch(`${BASE_URL}/pets`)
+        const allPets = await response.json()
+        const localPets = await localResponse.json()
+        
+        this.setState({ 
+            allPets: [...allPets, ...localPets]
+        })
     }   
 
     searchResults = (result) => {
@@ -23,11 +29,15 @@ export default class SearchPage extends Component {
     }
   
     render() {
+        console.log('this.state.allPets', this.state.allPets)
         return (
             <div className="search-page">
                 <SearchForm searchResults={this.searchResults}/>
                 <div className="card-container"> 
-                    {this.state.allPets.map(pet => <PetCard pet={pet} key={pet.id}/>)}   
+                {this.state.allPets.map(pet => {
+                    console.log(pet)
+                    return <PetCard pet={pet} key={pet.id}/>
+                })}   
                 </div>
             </div>
         )

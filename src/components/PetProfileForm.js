@@ -45,9 +45,6 @@ export default class PetProfileForm extends Component {
                 longitude 
             }
         })
-        console.log('petprofile', latitude, longitude)
-        console.log(typeof latitude)
-        console.log(typeof lat)
     }
     
     postPet = (pet) => {
