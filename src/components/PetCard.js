@@ -18,7 +18,7 @@ export default function PetCard({pet}) {
                 <img className="search-img" src={petPhoto} alt="Pet"/>
             </div>
             <div className="search-pet-info">
-                <h2>{pet.name}</h2> 
+                <h1>"{pet.name}"</h1> 
                 <h2>{pet.gender}</h2> 
                 <h2>{pet.breeds.primary || "Unknown"}</h2> 
                 <h2>{pet.age}</h2> 

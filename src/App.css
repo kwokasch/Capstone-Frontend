@@ -54,14 +54,6 @@ table {
 }
 
 html, body {
-	/* display: flex; */
-	/* height: 100%; */
-	/* width: 100%; */
 	scroll-behavior: smooth;
-	background-color: #d8e7e742;
+	background-color: #d8e7e72d;
 }
-
-/* .App {
-	height: 100%;
-	width: 100%;
-} */

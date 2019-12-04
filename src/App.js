@@ -12,12 +12,11 @@ import SubHeader from './components/SubHeader';
 import NavBar from './components/NavBar';
 import './App.css';
 
-// const BASE_URL = "http://localhost:3000"
-
 class App extends Component {
   state = {
     isLoggedIn: false,
     currentUser: null,
+    localPets: [],
     token: ''
   }
 
@@ -25,6 +24,13 @@ class App extends Component {
     this.setState({
       currentUser: user
     })
+  }
+
+  addLocalPet = (pet) => {
+    this.setState({
+      localPets: [...this.state.localPets, pet]
+    })
+    console.log(this.state.localPets)
   }
  
   setToken = (token) => {
@@ -37,11 +43,14 @@ class App extends Component {
     localStorage.setItem ('token', token)
     const base64Url = token.split('.')[1]
     const user = JSON.parse(window.atob(base64Url))
+    
     await this.setUser(user)
 
-    this.setState({isLoggedIn: !this.state.isLoggedIn})
+    await this.setState({isLoggedIn: !this.state.isLoggedIn})
 
-    window.location.href = "http://localhost:3001/userprofile"
+    if (this.state.currentUser){
+      window.location.href = "http://localhost:3001/lostfound"
+    }
   }
 
   logOutUser = () => {
@@ -70,10 +79,10 @@ class App extends Component {
           <Route exact path="/" component={IntroPage} />
           <Route exact path="/login" render={props => <LoginSignupPage {...props} setUser={this.setUser}/>} />
           <Route exact path="/login/token" render={props => <LoginToken {...props} logInUser={this.logInUser} setToken={this.setToken}/>} />
-          <Route exact path="/search" render={props => <SearchPage {...props} allPets={this.state.allPets}/>} />
+          <Route exact path="/search" render={props => <SearchPage {...props} localPets={this.state.localPets}/>} />
           {/* <PrivateRoute exact path="/" isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser} /> */}
           <Route exact path="/userprofile" render={props => <UserProfile {...props} setUser={this.setUser} currentUser={this.state.currentUser}/>} />
-          <Route exact path="/lostfound" render={props => <LostFoundPage {...props} setPet={this.setPet}/>} />
+          <Route exact path="/lostfound" render={props => <LostFoundPage {...props} addLocalPet={this.addLocalPet}/>} />
         </Switch>
       </Router>
     );

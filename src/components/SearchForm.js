@@ -67,7 +67,7 @@ export default class SearchForm extends Component {
                     </div>
                     <div className="search-input-field">
                         <label className="search-input-field-label">Age</label>
-                        <input type="text" name="age" onChange={this.handleChange}/>
+                        <input type="text" name="age" placeholder=""onChange={this.handleChange}/>
                     </div>
                     <div className="search-input-field">
                         <label className="search-input-field-label">Breed</label>

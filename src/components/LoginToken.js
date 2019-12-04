@@ -4,7 +4,8 @@ export class LoginToken extends Component {
     componentDidMount(){
         const urlParams = new URLSearchParams(window.location.search);
         const token = urlParams.get('token');
-                
+
+        
         if(token){
             this.props.logInUser(token)
         }

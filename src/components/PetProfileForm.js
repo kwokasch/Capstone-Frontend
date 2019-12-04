@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
+import MapContainer from '../components/MapContainer'
+import './../stylesheets/LostFoundPage.css'
 
-export class PetProfileForm extends Component {
+const BASE_URL = "http://localhost:3000"
+
+export default class PetProfileForm extends Component {
     state = {
         currentPet: {
             lostStatus: true,
@@ -19,30 +23,19 @@ export class PetProfileForm extends Component {
             latitude: "",
             longitude: "",
             pictureUrl: ""
-        }
+        },
+        selectedFile: 'https://vippuppies.com/wp-content/uploads/2019/04/Kurstin-497AEB12-4825-46A6-81E2-6073471430D0.jpeg'
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
 
-        const { lostStatus, name, species, gender, size, color, age, breed, temperament, comments } = this.state.currentPet
+        const { lostStatus, name, species, gender, size, color, age, breed, temperament, comments, dateLostOrFound, chipId, pictureUrl } = this.state.currentPet
 
-        this.postPet({ lostStatus, name, species, gender, size, color, age, breed, temperament, comments })
+        this.postPet({ lostStatus, name, species, gender, size, color, age, breed, temperament, comments, dateLostOrFound, chipId, pictureUrl })
 
-        this.setState({
-            currentPet: {
-                lostStatus: true,
-                name: "",
-                species: "",
-                gender: "",
-                size: "",
-                color: "",
-                age: 0,
-                breed: "",
-                temperament: "",
-                comments: ""
-            }
-        })
+        this.props.addLocalPet(this.state.currentPet)
+        console.log(this.state.currentPet)
     }
     
     postPet = (pet) => {
@@ -55,8 +48,7 @@ export class PetProfileForm extends Component {
         }).then(response => response.json())
         .then(response => {
           if(!response.error){
-            this.props.setPet(response)
-            this.props.history.push('/lostfound');
+            this.props.history.push('/search');
           } else {
             console.log(response.error)
           }
@@ -69,14 +61,15 @@ export class PetProfileForm extends Component {
         currentPet[event.target.name] = event.target.value 
         this.setState({ currentPet })
     }
-    
+
     render() {
         return (
             <form className="create-profile" onSubmit={this.handleSubmit}>
                 <h2>Create A Pet Profile</h2>
                 <div className="profile-info">
                     <div className="pet-image-box">
-                        <img className="pet-photo" src="https://vippuppies.com/wp-content/uploads/2019/04/Kurstin-497AEB12-4825-46A6-81E2-6073471430D0.jpeg" alt="bulldog"/>
+                        <img className="pet-photo" src={this.state.selectedFile} alt="bulldog"/>
+                        <input type="text" name="pictureUrl" placeholder="Paste photo url here..." />
                     </div>
                     <div className="form-box">
                         <div className="pet-info-form-box">
@@ -118,22 +111,25 @@ export class PetProfileForm extends Component {
                             </div>
                         </div>
                     </div>
-                    {/* <input id="submit-button" type="submit" value="Submit"/> */}
                 </div>
                 <div className="lost-info">
                     <h2>When and where did you lose your pet?</h2>
                     <div className="lost-form-box">
                         <div className="map-box">
-                            <MapContainer />
+                            <MapContainer onClick={this.mapClick}/>
                         </div>
                         <div className="lost-form-inputs">
                             <div className="calendar">
                                 <label className="input-field-label">Date Lost</label>
-                                <input id="calendar" type="date" data-date-inline-picker="true" name="calendar" onChange={this.handleChange}/>
+                                <input id="calendar" type="date" data-date-inline-picker="true" name="dateLostOrFound" onChange={this.handleChange}/>
+                            </div>
+                            <div className="chip-id-field">
+                                <label className="input-field-label">Chip ID</label>
+                                <input type="text" name="chipId" onChange={this.handleChange}/>
                             </div>
                             <div className="lost-comments">
                                 <label className="input-field-label">Comments</label>
-                                <input type="text" name="comments" onChange={this.handleChange}/>
+                                <textarea id="comments" rows="3" cols="100" name="additionalLostFoundInfo" onChange={this.handleChange} ></textarea>
                             </div>
                             <div className="submit-button-holder">
                                 <input id="submit-button" type="submit" value="Submit"/>
@@ -145,5 +141,3 @@ export class PetProfileForm extends Component {
         )
     }
 }
-
-export default PetProfileForm

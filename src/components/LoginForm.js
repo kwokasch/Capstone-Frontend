@@ -17,17 +17,6 @@ export default class LoginForm extends Component {
     setUser = user => {
         this.props.setUser(this.state.returningUser)
     }
-   
-    // loginUser = (returningUser) => {
-    //     fetch(`${BASE_URL}/users`, {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Accept": "application/json"
-    //           },
-    //         body: JSON.stringify(this.state.returningUser)
-    //     })
-    // }
     
     handleSubmit = (event) => {
         event.preventDefault()

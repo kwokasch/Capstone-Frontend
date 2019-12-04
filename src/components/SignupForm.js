@@ -49,8 +49,7 @@ export default class SignupForm extends Component {
         }).then(response => response.json())
         .then(response => {
           if(!response.error){
-            // this.props.history.push('/userprofile');
-            window.location.href = "http://localhost:3001/userprofile"
+            window.location.href = "http://localhost:3001/lostfound"
           } else {
             console.log(response.error)
           }

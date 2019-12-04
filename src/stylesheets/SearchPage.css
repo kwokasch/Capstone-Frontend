@@ -47,9 +47,9 @@
     display: flex;
     flex-flow: column wrap;
     font-family: 'Barlow Semi Condensed', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     color: #016969d5;
-    height: 18px;
+    height: 24px;
     width: 260px;
     border-radius: 5px;
     padding-left: 12px;
@@ -85,15 +85,10 @@
     overflow: scroll;
     height: 100%;
     width: 100%;
-    /* background-color: white; */
-    /* margin: 15px; */
-    /* border-radius: 5px; */
-    /* box-shadow: 0px 2px 5px #01202076; */
     scroll-behavior: smooth;
 }
 
 .pet-card {
-    /* border: 0.5px solid #00777748; */
     background-color: white;
     box-shadow: -1px 2px 5px #01202076;
     width: 300px;
@@ -123,6 +118,21 @@
 .search-pet-info {
     justify-content: center;
     text-align: center;
+    height: auto;
+}
+
+.search-pet-info > h1 {
+    font-family:'Barlow Semi Condensed', sans-serif;
+    font-size: 26px;
+    padding: 10px;
+    color: #016969;
+}
+
+.search-pet-info > h2 {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 18px;
+    padding: 3px;
+    color: #016969a9;
 }
 
 .search-submit-button-holder {
