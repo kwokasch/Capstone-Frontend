@@ -5,10 +5,6 @@ export default function PetCard({pet}) {
         return photo.medium || photo.large || photo.small || photo.full
     }
 
-    // const colors = Object.values(pet.colors)
-    // const filteredColors = colors.filter(color => color)
-    // const allColors = filteredColors.join(', ')
-    
     const firstPhoto = pet.photos && pet.photos[0];
     const petPhoto = firstPhoto ? getPhoto(firstPhoto) : 'https://www.quantabiodesign.com/wp-content/uploads/No-Photo-Available.jpg'
 

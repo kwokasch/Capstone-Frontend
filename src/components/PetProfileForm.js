@@ -17,7 +17,7 @@ export default class PetProfileForm extends Component {
             breed: "",
             temperament: "",
             comments: "",
-            dateLostOrFound: "",
+            dateLostOrFound: "2019-12-01",
             chipId: "",
             additionalLostFoundInfo: "",
             latitude: "",
@@ -30,12 +30,24 @@ export default class PetProfileForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
 
-        const { lostStatus, name, species, gender, size, color, age, breed, temperament, comments, dateLostOrFound, chipId, pictureUrl } = this.state.currentPet
+        const { lostStatus, name, species, gender, size, color, age, breed, temperament, comments, dateLostOrFound, latitude, longitude, chipId, additionalLostFoundInfo, pictureUrl } = this.state.currentPet
 
-        this.postPet({ lostStatus, name, species, gender, size, color, age, breed, temperament, comments, dateLostOrFound, chipId, pictureUrl })
+        this.postPet({ lostStatus, name, species, gender, size, color, age, breed, temperament, comments, dateLostOrFound, latitude, longitude, chipId, additionalLostFoundInfo, pictureUrl })
+    }
 
-        this.props.addLocalPet(this.state.currentPet)
-        console.log(this.state.currentPet)
+    setLatLong = (lat, long) => {
+        const latitude = lat.toString()
+        const longitude = long.toString()
+        this.setState({ 
+            currentPet: {
+                ...this.state.currentPet,
+                latitude, 
+                longitude 
+            }
+        })
+        console.log('petprofile', latitude, longitude)
+        console.log(typeof latitude)
+        console.log(typeof lat)
     }
     
     postPet = (pet) => {
@@ -48,7 +60,9 @@ export default class PetProfileForm extends Component {
         }).then(response => response.json())
         .then(response => {
           if(!response.error){
-            this.props.history.push('/search');
+            this.props.addLocalPet(response)  
+            this.props.setCurrentPet(response)
+            this.props.history.push('/search')
           } else {
             console.log(response.error)
           }
@@ -63,13 +77,14 @@ export default class PetProfileForm extends Component {
     }
 
     render() {
+        console.log(this.state.currentPet)
         return (
             <form className="create-profile" onSubmit={this.handleSubmit}>
                 <h2>Create A Pet Profile</h2>
                 <div className="profile-info">
                     <div className="pet-image-box">
                         <img className="pet-photo" src={this.state.selectedFile} alt="bulldog"/>
-                        <input type="text" name="pictureUrl" placeholder="Paste photo url here..." />
+                        <input type="text" name="pictureUrl" placeholder="Paste photo url here..." onChange={this.handleChange}/>
                     </div>
                     <div className="form-box">
                         <div className="pet-info-form-box">
@@ -116,7 +131,7 @@ export default class PetProfileForm extends Component {
                     <h2>When and where did you lose your pet?</h2>
                     <div className="lost-form-box">
                         <div className="map-box">
-                            <MapContainer onClick={this.mapClick}/>
+                            <MapContainer onClick={this.mapClick} setLatLong={this.setLatLong}/>
                         </div>
                         <div className="lost-form-inputs">
                             <div className="calendar">

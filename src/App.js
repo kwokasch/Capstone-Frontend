@@ -12,10 +12,11 @@ import SubHeader from './components/SubHeader';
 import NavBar from './components/NavBar';
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
   state = {
     isLoggedIn: false,
     currentUser: null,
+    currentPet: null,
     localPets: [],
     token: ''
   }
@@ -26,9 +27,16 @@ class App extends Component {
     })
   }
 
-  addLocalPet = (pet) => {
+  setCurrentPet = (pet) => {
     this.setState({
-      localPets: [...this.state.localPets, pet]
+      currentPet: pet
+    })
+    console.log(this.state.currentPet)
+  }
+
+  addLocalPet = () => {
+    this.setState({
+      localPets: [...this.state.localPets, this.state.currentPet]
     })
     console.log(this.state.localPets)
   }
@@ -82,11 +90,9 @@ class App extends Component {
           <Route exact path="/search" render={props => <SearchPage {...props} localPets={this.state.localPets}/>} />
           {/* <PrivateRoute exact path="/" isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser} /> */}
           <Route exact path="/userprofile" render={props => <UserProfile {...props} setUser={this.setUser} currentUser={this.state.currentUser}/>} />
-          <Route exact path="/lostfound" render={props => <LostFoundPage {...props} addLocalPet={this.addLocalPet}/>} />
+          <Route exact path="/lostfound" render={props => <LostFoundPage {...props} addLocalPet={this.addLocalPet} setCurrentPet={this.setCurrentPet}/>} />
         </Switch>
       </Router>
     );
   }
 }
-
-export default App;
