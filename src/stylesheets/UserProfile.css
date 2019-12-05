@@ -9,11 +9,11 @@
     width: 100%;
 }
 
-.user-profile-info {
+.user-pet-profile-info {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row;
     background-color: white;
-    width: 60%;
+    width: 80%;
     min-height: 75vh;
     align-self: center;
     align-content: center;
@@ -21,67 +21,110 @@
     border-radius: 10px;
     box-shadow: 0 1px 7px #0142429f;
 }
+.user-profile-info {
+    width: 50%;
+    margin: 20px;
+}
+.pet-profile-info {
+    width: 50%;
+    border-left: solid 1px lightgray;
+    margin: 20px;
+}
+
+.my-pet-image-box {
+    margin: 20px 0px 40px 0px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-pet-image-box img {
+    height: 250px;
+    width: 250px;
+}
+
+.my-pet-photo {
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+    object-position: 50% 50%;
+    border-radius: 50%;
+    padding: 15px;
+}
 
 .user-info {
-    width: 50%;
+    width: 100%;
     padding: 20px;
     color: #014242;
 }
-
-.user-preferences {
-    width: 50%;
-    margin: 20px;
-    padding-bottom: 10px;
+.pet-info {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    padding: 20px;
+    color: #014242;
+    align-items: center;
 }
 
 .user-info > h1 {
     font-family: 'Pacifico', cursive;
-    font-size: 36px;
+    font-size: 42px;
     text-align: center;
-    padding: 20px;
+    padding: 20px 20px 30px 20px;
+    color: #014242;
+}
+
+.pet-info > h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 42px;
+    text-align: center;
+    padding: 20px 20px 30px 20px;
     color: #014242;
 }
 
 .user-info > h2 {
-    font-size: 26px;
+    font-size: 38px;
     padding-bottom: 20px;
     text-align: center;
     font-family: 'Barlow Semi Condensed', sans-serif;
     color: #014242;
 }
 
-.user-preferences > h1 {
-    font-size: 26px;
-    text-align: center;
-    font-family: 'Barlow Semi Condensed', sans-serif;
+.user-info > h3 {
+    font-size: 22px;
     padding-bottom: 20px;
-    color: #014242;
-}
-
-.select-preferences {
-    display: flex;
-    justify-content: center;
-    color: #014242;
-}
-
-.preferences {
-    font-size: 24px;
     text-align: center;
     font-family: 'Barlow Semi Condensed', sans-serif;
-    padding-right: 30px;
+    color: #014242;
+}
+
+.pet-info > h2 {
+    font-size: 38px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    color: #014242;
+}
+
+.pet-info > h3 {
+    font-size: 22px;
+    padding-bottom: 15px;
+    text-align: center;
+    font-family: 'Barlow Semi Condensed', sans-serif;
     color: #014242;
 }
 
 .user-image-box {
     display: flex;
     padding: 15px;
-    margin-bottom: 20px;
+    margin: 20px 0px 40px 0px;
     justify-content: center;
 }
 
 .user-image-box img {
-    height: 150px;
-    width: 150px;
+    height: 210px;
+    width: 210px;
 }
 
 .user-photo {

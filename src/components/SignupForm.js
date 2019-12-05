@@ -49,7 +49,8 @@ export default class SignupForm extends Component {
         }).then(response => response.json())
         .then(response => {
           if(!response.error){
-            window.location.href = "http://localhost:3001/lostfound"
+            localStorage.setItem ('user', JSON.stringify(user))
+            window.location.href = "http://localhost:3001/userprofile"
           } else {
             console.log(response.error)
           }
@@ -91,7 +92,7 @@ export default class SignupForm extends Component {
                 </div>
                 <input id="submit" type="submit" value="Submit"/>
                 <div className="login-link"> 
-                    <p onClick={this.formLink}>Already a user?</p>
+                    {/* <p onClick={this.formLink}>Already a user?</p> */}
                 </div>
             </form>
         )

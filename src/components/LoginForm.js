@@ -22,7 +22,7 @@ export default class LoginForm extends Component {
         event.preventDefault()
     
         const { email, password } = this.state.returningUser
-    
+        
         this.loginUser({ email, password })
     }
     
@@ -34,7 +34,7 @@ export default class LoginForm extends Component {
 
     render() {
         return (
-            <form className="login">
+            <form className="login" onSubmit={this.handleSubmit}>
                 <h2>Login!</h2>
                 <div className="field">
                     <label className="field-label">Email</label>

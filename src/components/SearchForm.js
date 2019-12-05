@@ -29,7 +29,7 @@ export default class SearchForm extends Component {
         const filteredPets = localPetsArray.filter(pet => {
             return keys 
             .filter(key => searchCriteria[key])
-            .every(key => pet[key] === searchCriteria[key])
+            .every(key => pet[key].toLowerCase() === searchCriteria[key].toLowerCase())
         })
 
         fetch(`${BASE_URL}/petfinder/search`, {

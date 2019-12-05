@@ -15,7 +15,7 @@ import './App.css';
 export default class App extends Component {
   state = {
     isLoggedIn: false,
-    currentUser: null,
+    // currentUser: null,
     currentPet: null,
     localPets: [],
     token: ''
@@ -31,14 +31,13 @@ export default class App extends Component {
     this.setState({
       currentPet: pet
     })
-    console.log(this.state.currentPet)
+    localStorage.setItem ('pet', JSON.stringify(pet))
   }
 
   addLocalPet = () => {
     this.setState({
       localPets: [...this.state.localPets, this.state.currentPet]
     })
-    console.log(this.state.localPets)
   }
  
   setToken = (token) => {
@@ -53,20 +52,25 @@ export default class App extends Component {
     const user = JSON.parse(window.atob(base64Url))
     
     await this.setUser(user)
+    localStorage.setItem ('user', JSON.stringify(user))
 
     await this.setState({isLoggedIn: !this.state.isLoggedIn})
 
     if (this.state.currentUser){
-      window.location.href = "http://localhost:3001/lostfound"
+      window.location.href = "http://localhost:3001/userprofile"
     }
   }
 
   logOutUser = () => {
     localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    localStorage.removeItem('pet')
     this.setState({isLoggedIn: !this.state.isLoggedIn})
   }
 
   render(){
+    console.log('currentUser', this.state.currentUser)
+    console.log('currentPet', this.state.currentPet)
     return (
       <Router>
         <div className="App">
@@ -89,7 +93,7 @@ export default class App extends Component {
           <Route exact path="/login/token" render={props => <LoginToken {...props} logInUser={this.logInUser} setToken={this.setToken}/>} />
           <Route exact path="/search" render={props => <SearchPage {...props} localPets={this.state.localPets}/>} />
           {/* <PrivateRoute exact path="/" isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser} /> */}
-          <Route exact path="/userprofile" render={props => <UserProfile {...props} setUser={this.setUser} currentUser={this.state.currentUser}/>} />
+          <Route exact path="/userprofile" render={props => <UserProfile {...props} setUser={this.setUser} currentPet={this.state.currentPet}/>} />
           <Route exact path="/lostfound" render={props => <LostFoundPage {...props} addLocalPet={this.addLocalPet} setCurrentPet={this.setCurrentPet}/>} />
         </Switch>
       </Router>
