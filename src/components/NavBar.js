@@ -9,6 +9,11 @@ export default function NavBar(props) {
             <Link className="link" to="/search">Search</Link>
             {
                 props.isLoggedIn === true
+                ? ''
+                : <Link className="link" to="/userprofile">Profile</Link>
+            }
+            {
+                props.isLoggedIn === true
                 ? <Link className="link" to="/login">Login / Sign Up</Link>
                 : <Link className="link" to="/" onClick={props.logOutUser}>Logout</Link>
             }

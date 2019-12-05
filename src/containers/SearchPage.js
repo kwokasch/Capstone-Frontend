@@ -8,38 +8,52 @@ const BASE_URL = "http://localhost:3000"
 export default class SearchPage extends Component {
     state = {
         allPets: [],
-        localPets: []
+        filteredPets: [],
+        localPets: [],
+        petFinderPets: []
     }
 
-
     async componentDidMount(){
-        const response = await fetch(`${BASE_URL}/petfinder`)
         const localResponse = await fetch(`${BASE_URL}/pets`)
-        const allPets = await response.json()
+        const response = await fetch(`${BASE_URL}/petfinder`)
+        const petFinderPets = await response.json()
         const localPets = await localResponse.json()
         const reverseLocalPets = localPets.reverse()
         
         this.setState({ 
-            allPets: [...reverseLocalPets, ...allPets]
+            localPets: reverseLocalPets, 
+            petFinderPets
         })
     }   
 
     searchResults = (result) => {
         this.setState({
-            allPets: result
+            petFinderPets: result
+        })
+    }
+  
+    filterResults = (result) => {
+        this.setState({
+            filteredPets: result
         })
     }
   
     render() {
-        console.log('this.state.allPets', this.state.allPets)
+        let allPets
+        if(this.state.filteredPets.length > 0) {
+            allPets = [...this.state.filteredPets, ...this.state.petFinderPets]
+        } else {
+            allPets = [...this.state.localPets, ...this.state.petFinderPets]
+        }
+
         return (
             <div className="search-page">
-                <SearchForm searchResults={this.searchResults}/>
+                <SearchForm localPets={this.state.localPets} filterResults={this.filterResults} searchResults={this.searchResults}/>
                 <div className="card-container"> 
-                {this.state.allPets.map(pet => {
-                    console.log(pet)
-                    return <PetCard pet={pet} key={pet.id}/>
-                })}   
+                { allPets.map(pet => {
+                        return <PetCard pet={pet} key={pet.id}/>
+                    })  
+                } 
                 </div>
             </div>
         )

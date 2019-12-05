@@ -8,16 +8,7 @@ export default class SearchForm extends Component {
         super(props)
 
         this.state = {
-            searchCriteria: {
-                name: "",
-                species: "",
-                gender: "",
-                size: "",
-                color: "",
-                age: "",
-                breed: "",
-                location: ""
-            }
+            searchCriteria: {}
         }
     }
 
@@ -27,8 +18,19 @@ export default class SearchForm extends Component {
         this.setState({ searchCriteria })
     }
 
-    handleSubmit = event => {
+    handleSubmit = (event) => {
         event.preventDefault()
+
+        const searchCriteria = this.state.searchCriteria
+        const localPetsArray = this.props.localPets
+
+        const keys = Object.keys(searchCriteria)
+            
+        const filteredPets = localPetsArray.filter(pet => {
+            return keys 
+            .filter(key => searchCriteria[key])
+            .every(key => pet[key] === searchCriteria[key])
+        })
 
         fetch(`${BASE_URL}/petfinder/search`, {
             method: 'POST',
@@ -38,8 +40,12 @@ export default class SearchForm extends Component {
             body: JSON.stringify(this.state.searchCriteria)
         }).then(response => response.json())
         .then(this.props.searchResults)
+        
+        this.props.filterResults(filteredPets)
+
     }
 
+    
     render() {
         return (
             <div className="search-form-box">

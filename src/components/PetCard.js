@@ -6,7 +6,6 @@ export default function PetCard({pet}) {
     }
     
     const firstPhoto = pet.photos && pet.photos[0];
-    // const petPhoto = firstPhoto ? getPhoto(firstPhoto) : 'https://www.quantabiodesign.com/wp-content/uploads/No-Photo-Available.jpg'
 
     const petPhoto = () => {
         if(firstPhoto){

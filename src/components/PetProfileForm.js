@@ -80,7 +80,7 @@ export default class PetProfileForm extends Component {
                 <h2>Create A Pet Profile</h2>
                 <div className="profile-info">
                     <div className="pet-image-box">
-                        <img className="pet-photo" src={this.state.selectedFile} alt="bulldog"/>
+                        <img className="pet-photo" src={this.state.currentPet.pictureUrl || this.state.selectedFile} alt="bulldog"/>
                         <input type="text" name="pictureUrl" placeholder="Paste photo url here..." onChange={this.handleChange}/>
                     </div>
                     <div className="form-box">
