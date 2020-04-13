@@ -391,7 +391,7 @@ input:focus {
     justify-content: center;
 }
 
-#submit-button {
+/* #submit-button {
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-size: 18px;
     background-color: rgba(211, 211, 211, 0.5);
@@ -399,9 +399,25 @@ input:focus {
     width: 350px;
     height: 35px;
     border-radius: 12px;
-    /* justify-self: center; */
     align-items: center;
-    /* margin: 25px; */
+} */
+
+/* #submit-button:hover {
+    cursor: pointer;
+} */
+
+#submit-button {
+    display: flex;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 18px;
+    background-color: rgba(211, 211, 211, 0.5);
+    color: rgba(0, 0, 0, 0.644);
+    width: 100px;
+    height: 35px;
+    border-radius: 12px;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
 }
 
 #submit-button:hover {

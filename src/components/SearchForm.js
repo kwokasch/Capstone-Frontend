@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../stylesheets/SearchPage.css'
 
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = "https://homeward-bound-new.herokuapp.com/"
 
 export default class SearchForm extends Component {
     constructor(props) {
@@ -29,7 +29,7 @@ export default class SearchForm extends Component {
         const filteredPets = localPetsArray.filter(pet => {
             return keys 
             .filter(key => searchCriteria[key])
-            .every(key => pet[key].toLowerCase() === searchCriteria[key].toLowerCase())
+            .every(key => pet[key] === searchCriteria[key])
         })
 
         fetch(`${BASE_URL}/petfinder/search`, {

@@ -3,7 +3,7 @@ import '../stylesheets/SearchPage.css'
 import PetCard from '../components/PetCard'
 import SearchForm from '../components/SearchForm'
 
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = "https://homeward-bound-new.herokuapp.com/"
 
 export default class SearchPage extends Component {
     state = {

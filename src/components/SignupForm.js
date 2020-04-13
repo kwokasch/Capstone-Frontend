@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = "https://homeward-bound-new.herokuapp.com/"
 
 export default class SignupForm extends Component {
     state = {
@@ -50,7 +50,7 @@ export default class SignupForm extends Component {
         .then(response => {
           if(!response.error){
             localStorage.setItem ('user', JSON.stringify(user))
-            window.location.href = "http://localhost:3001/userprofile"
+            window.location.href = "https://homeward-bound-new.herokuapp.com/userprofile"
           } else {
             console.log(response.error)
           }
@@ -68,7 +68,7 @@ export default class SignupForm extends Component {
         return (
             <form className="sign-up" onSubmit={this.handleSubmit}>
                 <h2>Sign Up!</h2>
-                <a className="google-button" href="http://localhost:3000/auth/google"> </a>
+                <a className="google-button" href="https://homeward-bound-new.herokuapp.com/auth/google"> </a>
                 <h3> - or - </h3>
                 <div className="field">
                     <label className="field-label">First Name</label>

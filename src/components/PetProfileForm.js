@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import MapContainer from '../components/MapContainer'
 import './../stylesheets/LostFoundPage.css'
 
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = "https://homeward-bound-new.herokuapp.com/"
 
 export default class PetProfileForm extends Component {
     state = {
@@ -60,7 +60,7 @@ export default class PetProfileForm extends Component {
             this.props.addLocalPet(response)  
             this.props.setCurrentPet(response)
             this.props.history.push('/search')
-          } else {
+          } else {c
             console.log(response.error)
           }
         })

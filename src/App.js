@@ -69,8 +69,6 @@ export default class App extends Component {
   }
 
   render(){
-    console.log('currentUser', this.state.currentUser)
-    console.log('currentPet', this.state.currentPet)
     return (
       <Router>
         <div className="App">
