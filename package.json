@@ -17,7 +17,7 @@
     "google-maps-react": "^2.0.2",
     "history": "^4.10.1",
     "minimist": "^1.2.5",
-    "passport-jwt": "^4.0.0",
+    "passport-jwt": "^4.0.1",
     "react": "^16.13.1",
     "react-burger-menu": "^2.6.13",
     "react-dom": "^16.13.1",
